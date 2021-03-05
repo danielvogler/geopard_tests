@@ -1,5 +1,5 @@
 # Geopard Tests
-Test cases for geopard
+Test cases for geopard ([www.github.com/danielvogler/geopard](www.github.com/danielvogler/geopard))
 
 ### Usage
 `bash testing.sh`

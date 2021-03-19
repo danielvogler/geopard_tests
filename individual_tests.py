@@ -9,7 +9,6 @@ import sys
 import datetime
 from datetime import timedelta
 
-print('loading')
 dtw_threshold=0.2
 
 ### passed arguments
@@ -29,7 +28,18 @@ Track matching
 """
 
 ### dtw matching of example segments/activities
-final_time, final_dtw, match_flag = gp.dtw_match(folder_path+gold_name,folder_path+activity_name,radius=radius,dtw_threshold=dtw_threshold)
+geopard_response = gp.dtw_match(folder_path+gold_name,folder_path+activity_name,radius=radius,dtw_threshold=dtw_threshold)
+
+if not geopard_response.is_success():
+    print("\n----- Matching not successful -----")
+    print("Error:" , geopard_response.error)
+    exit(-1)
+
+final_time = geopard_response.time
+final_dtw = geopard_response.dtw
+match_flag = geopard_response.match_flag
+final_start_point = geopard_response.start_point
+final_end_point = geopard_response.end_point
 
 """
 Track plotting

@@ -75,7 +75,8 @@ tests[8,activity_name]="tdu2a.gpx"
 
 ### loop through test cases
 for idx in "${test_idx[@]}"; do
-
+  
+  echo -e "\n\n-----"
   echo Testing: ${tests[$idx,name]}
 
   python3 individual_tests.py \
